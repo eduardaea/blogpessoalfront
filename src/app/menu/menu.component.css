@@ -1,0 +1,13 @@
+.bg{
+background-color:rgb(226, 236, 128);
+}
+.fs-16{
+    font-size: 16pt;
+    color: rgb(46, 148, 46);
+} 
+.fs-16 p{
+    padding-left: 3px;
+}
+a{
+    cursor: pointer;
+}
