@@ -1,5 +1,5 @@
 #img-bg{
-    background-image: url("https://i.imgur.com/MxCpKcf.jpeg");
+    background-image: url("https://i.imgur.com/16gTG0X.jpg");
     min-height: 695px;
     background-position: center;
     background-repeat: no-repeat;
@@ -7,5 +7,48 @@
 }
 
 .bg-row{
-    background-color: plum;
+    background: rgb(180,58,175);
+    background: radial-gradient(circle, rgba(180,58,175,0.47413793103448276) 0%, rgba(29,65,253,0.4676724137931034) 94%);
 }
+
+.form-teste{
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.103);
+    border-radius: 10px;
+
+}
+
+             
+    .btn {
+        background-image: linear-gradient(to right, #DC2424 0%, #4A569D  51%, #DC2424  100%);
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;            
+        box-shadow: 0 0 10px #eee;
+        border-radius: 7px;
+      }
+
+      .btn:hover {
+        background-position: right center;
+        color: #fff;
+        text-decoration: none;
+      }
+     
+      input,
+      .form-control{
+        background-color: #ffffff42;    
+        color: #eee;
+    }
+
+    input::placeholder{
+        color: #ffffff75;
+        font-weight: 200;
+    }
+
+    label,
+    .form-control,
+    h1{
+        color: #a0361673;
+        font-weight: 600;
+    }
+
