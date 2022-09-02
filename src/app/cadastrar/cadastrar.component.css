@@ -18,6 +18,16 @@
 
 }
 
+h1{
+    font-family: Poppins;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 60px;
+    letter-spacing: 0em;
+    text-align: center;
+    
+}
+
              
     .btn {
         background-image: linear-gradient(to right, #DC2424 0%, #4A569D  51%, #DC2424  100%);
