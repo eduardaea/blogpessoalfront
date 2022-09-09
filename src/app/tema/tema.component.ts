@@ -41,4 +41,4 @@ export class TemaComponent implements OnInit {
         this.tema = new Tema
       })
     }
-}
+ }
