@@ -52,6 +52,6 @@ export class TemaService {
       const token = {
         headers: new HttpHeaders().set('Authorization', environment.token)
       }
-      this.http.delete(`${this.baseUrl}temas/${id}`,token)
+      return this.http.delete(`${this.baseUrl}temas/${id}`,token)
     }
 }
