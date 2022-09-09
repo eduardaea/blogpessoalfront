@@ -1,0 +1,11 @@
+.color{
+  background-color:   rgb(10 177 43 / 51%);
+}
+.but{
+  background-color: transparent;
+    border-width: 0px;
+    border-color:0ch;
+    border-image: initial;
+    text-decoration: underline;
+    color: blue;
+}
