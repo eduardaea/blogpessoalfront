@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment.prod';
+import { environment, baseUrl } from 'src/environments/environment.prod';
 import { User } from '../model/User';
 import { UserLogin } from '../model/UserLogin';
 
@@ -10,19 +10,32 @@ import { UserLogin } from '../model/UserLogin';
 })
 export class AuthService {
 
-  baseUrl = 'http://localhost:8080/'
 
   constructor(
     private http: HttpClient
   ) { }
 
+  getToken():  {headers :HttpHeaders} {
+    const token = {
+      headers: new HttpHeaders().set('Authorization', environment.token)
+    }
+    return token
+  }
+
+
   entrar(userLogin: UserLogin): Observable<UserLogin>{
-    return this.http.post<UserLogin>(`${this.baseUrl}usuarios/logar`, userLogin)
+    return this.http.post<UserLogin>(`${baseUrl}usuarios/logar`, userLogin)
   }
 
   cadastrar(user:User):Observable<User>{
-      return this.http.post<User>(`${this.baseUrl}usuarios/cadastrar`,user)
+      return this.http.post<User>(`${baseUrl}usuarios/cadastrar`,user)
   }
+
+  getByIdUser(id: number): Observable<User>{
+    return this.http.get<User>(`${baseUrl}usuarios/${id}`,this.getToken())
+
+  }
+
   logado(){
     let ok = false
     if(environment.token != ''){

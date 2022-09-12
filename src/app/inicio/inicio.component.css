@@ -9,3 +9,9 @@
     text-decoration: underline;
     color: blue;
 }
+
+.card-columns{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 10px;
+}
