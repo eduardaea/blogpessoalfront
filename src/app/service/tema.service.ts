@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment.prod';
+import { environment, baseUrl } from 'src/environments/environment.prod';
 import { Tema } from '../model/Tema';
 
 @Injectable({
@@ -9,49 +9,38 @@ import { Tema } from '../model/Tema';
 })
 export class TemaService {
 
-  baseUrl = "http://localhost:8080/"
+  getToken():  {headers :HttpHeaders} {
+
+    console.log(environment);
+    const token = {
+      headers: new HttpHeaders().set('Authorization', environment.token)
+    }
+    return token
+  }
+
+  
 
   constructor( private http: HttpClient) {
    }
 
     getAllTema(): Observable<Tema[]>{
-
-      const  token = {
-        headers: new HttpHeaders().set('Authorization', environment.token)
-      }
-
-      return this.http.get<Tema[]>(`${this.baseUrl}temas`,token)
+      return this.http.get<Tema[]>(`${baseUrl}temas`,this.getToken())
     }
 
     getByIdTema(id:number): Observable<Tema>{
-      const  token = {
-        headers: new HttpHeaders().set('Authorization', environment.token)
-      }
-      return this.http.get<Tema>(`${this.baseUrl}temas/${id}`,token)
+      return this.http.get<Tema>(`${baseUrl}temas/${id}`,this.getToken())
     }
 
     postTema(tema:Tema): Observable<Tema>{
-       const token = {
-        headers: new HttpHeaders().set('Authorization', environment.token)
-      }
-     
-      return this.http.post<Tema>(`${this.baseUrl}temas`,tema, token)
+        return this.http.post<Tema>(`${baseUrl}temas`,tema,this.getToken())
     }
 
     putTema(tema:Tema):Observable<Tema>{
-
-        const token = {
-          headers: new HttpHeaders().set('Authorization', environment.token)
-        }
-
-       return this.http.put<Tema>(`${this.baseUrl}temas`,tema, token)
+       return this.http.put<Tema>(`${baseUrl}temas`,tema, this.getToken())
     }
 
 
     deleteTema(id: number){
-      const token = {
-        headers: new HttpHeaders().set('Authorization', environment.token)
-      }
-      return this.http.delete(`${this.baseUrl}temas/${id}`,token)
+      return this.http.delete(`${baseUrl}temas/${id}`,this.getToken())
     }
 }
