@@ -27,6 +27,12 @@ export class AuthService {
     return this.http.post<UserLogin>(`${baseUrl}usuarios/logar`, userLogin)
   }
 
+
+  atualizarUser(user: User): Observable<User> {
+     return this.http.put<User>(`${baseUrl}usuarios/atualizar`, user, this.getToken())
+  
+  }
+
   cadastrar(user:User):Observable<User>{
       return this.http.post<User>(`${baseUrl}usuarios/cadastrar`,user)
   }
