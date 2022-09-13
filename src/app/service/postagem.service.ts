@@ -22,6 +22,9 @@ export class PostagemService {
     return token
   }
 
+  getByIdPostagem(id: number): Observable<Postagem>{
+    return this.http.get<Postagem>(`${baseUrl}postagens/${id}`,this.getToken())
+  }
 
   getAllpostagens(): Observable<Postagem[]> { 
 
@@ -33,4 +36,11 @@ export class PostagemService {
     return this.http.post<Postagem>(`${baseUrl}postagens`, post,  this.getToken())
   }
 
+  putPostagem(postagem:Postagem): Observable<Postagem>{
+    return this.http.put<Postagem>(`${baseUrl}postagens`,postagem, this.getToken())
+  }
+
+  deletePostagem(id:number):Observable<Postagem>{
+   return this.http.delete<Postagem>(`${baseUrl}postagens/${id}`,this.getToken())
+  }
 }
