@@ -40,7 +40,7 @@ export class PostagemService {
     return this.http.put<Postagem>(`${baseUrl}postagens`,postagem, this.getToken())
   }
 
-  deletePostagem(id:number){
-    this.http.delete(`${baseUrl}postagens/${id}`,this.getToken())
+  deletePostagem(id:number):Observable<Postagem>{
+   return this.http.delete<Postagem>(`${baseUrl}postagens/${id}`,this.getToken())
   }
 }

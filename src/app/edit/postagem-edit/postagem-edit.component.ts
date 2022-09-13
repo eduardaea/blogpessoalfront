@@ -28,6 +28,9 @@ export class PostagemEditComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    window.scroll(0,0)
+
     if(environment.token == ''){
       this.router.navigate(['/login'])
     }
@@ -36,14 +39,6 @@ export class PostagemEditComponent implements OnInit {
     this.findAllTemas()
   }
   
-  // getToken():  {headers :HttpHeaders} {
-  //   console.log(environment);
-  //   const token = {
-  //     headers: new HttpHeaders().set('Authorization', environment.token)
-  //   }
-  //   return token
-  // }
-
   findByIdPostagem(id: number){
     this.postagemService.getByIdPostagem(id).subscribe((resp: Postagem)=>{
       this.postagem = resp
